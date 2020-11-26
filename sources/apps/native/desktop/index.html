@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>App</title>
+</head>
+
+<body>
+    <div class="desktop">
+        <h5 style="color: white;">electron system alpha</h5>
+    </div>
+    <footer class="taskbar">
+        <a class="start-button" onclick=""><img src="./images/electron-icon.png" alt="electron-icon"></a>
+    </footer>
+    <!-- native Scripts -->
+    <script>
+        const fs = require('fs');
+        const globalObject = new class globalInfoSystemObject {
+            TASKBAR_IS_OPEN = false;
+            /**
+             * @param {string} propietyName the name of the propiety
+             * @param {any} propiety the value on the propiety
+             */
+            addPropiety(propietyName, propiety) {
+                if (!propietyName || !propiety) throw 'propietyName or propiety was not provided';
+                if (typeof propietyName != "string") throw 'the propiety name was not a string';
+                if (typeof propiety == "function") throw 'the property cannot be a function';
+                console.log(`new propiety! key: ${propietyName}\nvalue: ${propiety}`);
+                this[propietyName] = propiety;
+            };
+        };
+    </script>
+    <script src="./main.js"></script>
+</body>
+
+</html>

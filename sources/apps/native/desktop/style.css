@@ -1,0 +1,54 @@
+@font-face {
+    src: url('./fonts/Roboto-Regular.ttf');
+    font-family: 'Regular-Roboto';
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Regular-Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding: 0px;
+    margin: 0px;
+    user-select: none;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow-y: hidden;
+}
+
+.desktop {
+    height: 100%;
+    width: 100%;
+    background-image: url('./images/wallpaper_2.jpg');
+    background-repeat: no-repeat;
+    background-clip: content-box;
+    background-size: cover;
+}
+
+.taskbar {
+    height: var(--height-taskbar);
+    width: var(--witdth-taskbar);
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .7);
+}
+
+.start-button>img {
+    height: 100%;
+    background-color: unset;
+}
+
+.start-button {
+    background-color: unset;
+    border: 0px;
+    height: var(--height-taskbar);
+    width: var(--height-taskbar);
+}
+
+
+:root {
+    --height-taskbar: 37px;
+    --witdth-taskbar: 100%;
+}

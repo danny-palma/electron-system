@@ -1,0 +1,18 @@
+{
+  "name": "electron-hbs-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "electron": "^11.0.3",
+    "handlebars": "^4.7.6",
+    "typescript": "^4.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev": "tsc && echo success build, initializacion electron app && cd dist && electron index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
