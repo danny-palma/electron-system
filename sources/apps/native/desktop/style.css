@@ -15,7 +15,7 @@ html,
 body {
     width: 100%;
     height: 100%;
-    overflow-y: hidden;
+    overflow: hidden;
 }
 
 .desktop {
@@ -35,20 +35,45 @@ body {
     background-color: rgba(0, 0, 0, .7);
 }
 
-.start-button>img {
+.taskbar>.start-button>img {
     height: 100%;
     background-color: unset;
 }
 
-.start-button {
+.taskbar>.start-button {
     background-color: unset;
     border: 0px;
     height: var(--height-taskbar);
     width: var(--height-taskbar);
 }
 
+.taskbar>.icon {
+    transition: var(--transition-delay-icons);
+    height: 100%;
+    width: var(--height-taskbar);
+}
+
+.taskbar>.icon>img {
+    padding: 5px 5px;
+    height: 100%;
+    background-color: unset;
+}
+
+.taskbar>.icon>img:hover,
+.taskbar>.start-button>img:hover {
+    transition: var(--transition-delay-icons);
+    background-color: rgba(255, 255, 255, 0.322);
+    cursor: pointer;
+}
+
+.taskbar>.date-box{
+    float: right;
+    color: #ffff;
+    padding-right: 5px;
+}
 
 :root {
     --height-taskbar: 37px;
     --witdth-taskbar: 100%;
+    --transition-delay-icons: 400ms
 }
