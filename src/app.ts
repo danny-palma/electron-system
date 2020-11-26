@@ -13,11 +13,12 @@ export default class Main {
         } else {
             app.on('ready', load)
         };
+        this.listeners();
     };
-    private onClose() {
-        this.window?.destroy();
-    };
-    public loadURL(url: string) {
-        this.window?.loadURL(url);
-    };
+    private listeners() {
+        app.on('window-all-closed', () => {
+            console.log('goodbye :D')
+            app.quit();
+        });
+    }
 };
