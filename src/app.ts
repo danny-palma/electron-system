@@ -1,5 +1,4 @@
 import { BrowserWindow, BrowserWindowConstructorOptions, App, app } from 'electron';
-import { resolve } from "path";
 
 export default class Main {
     public window: BrowserWindow | undefined;

@@ -1,7 +1,5 @@
-import { app, BrowserWindow } from 'electron';
 import Main from './app';
 import { join } from "path";
-import { readFileSync } from "fs";
 
 new Main({
     darkTheme: false,
@@ -9,9 +7,11 @@ new Main({
     height: 720,
     width: 1280,
     resizable: false,
-    frame: true,
+    frame: false,
     fullscreen: require('../sources/registry/initial-config.json')['full-screen'],
     webPreferences: {
-        nodeIntegration: true
-    }
+        nodeIntegration: true,
+        contextIsolation: false
+    },
+    
 }, join(__dirname, '/../sources/apps/native/desktop/index.html'));
