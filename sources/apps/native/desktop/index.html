@@ -14,12 +14,28 @@
     </div>
     <footer class="taskbar">
         <a class="start-button" onclick=""><img src="./images/electron-icon.png" alt="electron-icon"></a>
+        <a class="icon"><img src="./images/electron-icon.png" alt="electron-icon"></a>
+        <div class="date-box" id="date-box">
+            <script>
+                (() => {
+                    let htmlDateBox = document.getElementById('date-box');
+                    let date = new Date();
+                    htmlDateBox.innerText = `${date.getHours()}:${date.getMinutes()}\n${date.toLocaleDateString()}`;
+                    setInterval(() => {
+                        date = new Date();
+                        htmlDateBox.innerText = `${date.getHours()}:${date.getMinutes()}\n${date.toLocaleDateString()}`;
+                    }, 500);
+                })();
+            </script>
+        </div>
     </footer>
     <!-- native Scripts -->
     <script>
         const fs = require('fs');
-        const globalObject = new class globalInfoSystemObject {
+        const path = require('path');
+        const globalInfoSystemObject = new class globalInfoSystemObject {
             TASKBAR_IS_OPEN = false;
+            ROOT_ROUTE = path.resolve('../sources');
             /**
              * @param {string} propietyName the name of the propiety
              * @param {any} propiety the value on the propiety
@@ -32,6 +48,15 @@
                 this[propietyName] = propiety;
             };
         };
+
+        function loadFileFromRoute(route) {
+            if (!route) return null;
+            return fs.readFileSync(`${globalInfoSystemObject.ROOT_ROUTE}${path.sep}${route}`);
+        }
+
+        function readDirFromRoute(route = '') {
+            return fs.readdirSync(`${globalInfoSystemObject.ROOT_ROUTE}${path.sep}${route}`);
+        }
     </script>
     <script src="./main.js"></script>
 </body>
