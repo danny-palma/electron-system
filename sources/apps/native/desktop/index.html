@@ -14,7 +14,7 @@
     </div>
     <footer class="taskbar">
         <a class="start-button" onclick=""><img src="./images/electron-icon.png" alt="electron-icon"></a>
-        <a class="icon"><img src="./images/electron-icon.png" alt="electron-icon"></a>
+        <a class="icon"><img src="../../FileExplorer/images/icon-file-explorer.png" alt="electron-icon"></a>
         <div class="date-box" id="date-box">
             <script>
                 (() => {
@@ -24,7 +24,7 @@
                     setInterval(() => {
                         date = new Date();
                         htmlDateBox.innerText = `${date.getHours()}:${date.getMinutes()}\n${date.toLocaleDateString()}`;
-                    }, 500);
+                    }, 1000);
                 })();
             </script>
         </div>
