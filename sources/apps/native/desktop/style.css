@@ -36,6 +36,7 @@ body {
 }
 
 .taskbar>.start-button>img {
+    transition: var(--transition-delay-icons);
     height: 100%;
     background-color: unset;
 }
@@ -48,12 +49,12 @@ body {
 }
 
 .taskbar>.icon {
-    transition: var(--transition-delay-icons);
     height: 100%;
     width: var(--height-taskbar);
 }
 
 .taskbar>.icon>img {
+    transition: var(--transition-delay-icons);
     padding: 5px 5px;
     height: 100%;
     background-color: unset;
