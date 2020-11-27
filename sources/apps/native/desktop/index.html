@@ -9,12 +9,17 @@
 </head>
 
 <body>
-    <div class="desktop">
+    <main class="desktop" onclick="hideinitMenu()">
         <h5 style="color: white;">electron system alpha</h5>
-    </div>
+        <!-- table for write the windows -->
+        <div id="desktop-for-windows">
+
+        </div>
+    </main>
     <footer class="taskbar">
-        <a class="start-button" onclick=""><img src="./images/electron-icon.png" alt="electron-icon"></a>
-        <a class="icon"><img src="../../FileExplorer/images/icon-file-explorer.png" alt="electron-icon"></a>
+        <a class="start-button" onclick="startButton()"><img src="./images/electron-icon.png" alt="electron-icon"></a>
+        <a class="icon"><img src="../../FileExplorer/images/icon-file-explorer.png" alt="electron-icon" onclick="initFileExplorer()"></a>
+        <!-- date info -->
         <div class="date-box" id="date-box">
             <script>
                 (() => {
@@ -28,37 +33,16 @@
                 })();
             </script>
         </div>
+        <!-- task bar -->
+        <div id="init-menu" style="display: none; position: absolute;">
+            hola
+        </div>
     </footer>
     <!-- native Scripts -->
     <!-- global variables -->
-    <script>
-        const fs = require('fs');
-        const path = require('path');
-        const globalInfoSystemObject = new class globalInfoSystemObject {
-            TASKBAR_IS_OPEN = false;
-            ROOT_ROUTE = path.resolve('../sources');
-            /**
-             * @param {string} propietyName the name of the propiety
-             * @param {any} propiety the value on the propiety
-             */
-            addPropiety(propietyName, propiety) {
-                if (!propietyName || !propiety) throw 'propietyName or propiety was not provided';
-                if (typeof propietyName != "string") throw 'the propiety name was not a string';
-                if (typeof propiety == "function") throw 'the property cannot be a function';
-                console.log(`new propiety! key: ${propietyName}\nvalue: ${propiety}`);
-                this[propietyName] = propiety;
-            };
-        };
-
-        function loadFileFromRoute(route) {
-            if (!route) return null;
-            return fs.readFileSync(`${globalInfoSystemObject.ROOT_ROUTE}${path.sep}${route}`);
-        }
-
-        function readDirFromRoute(route = '') {
-            return fs.readdirSync(`${globalInfoSystemObject.ROOT_ROUTE}${path.sep}${route}`);
-        }
-    </script>
+    <script src="../global-scripts/global-object.js"></script>
+    <script src="../global-scripts/load-files-and-routes.js"></script>
+    <script src="../global-scripts/load-window.js"></script>
     <script src="./main.js"></script>
 </body>
 
