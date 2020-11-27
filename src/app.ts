@@ -8,17 +8,17 @@ export default class Main {
             this.window = new BrowserWindow(args);
             this.window.loadURL(urlToLoad);
         };
-        if (app.isReady()) {
+        if (this.app.isReady()) {
             load()
         } else {
-            app.on('ready', load)
+            this.app.on('ready', load)
         };
         this.listeners();
     };
     private listeners() {
-        app.on('window-all-closed', () => {
+        this.app.on('window-all-closed', () => {
             console.log('goodbye :D')
-            app.quit();
+            this.app.quit();
         });
     }
 };
