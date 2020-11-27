@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "handlebars": "^4.7.6"
+  },
+  "devDependencies": {
     "electron": "^11.0.3",
-    "handlebars": "^4.7.6",
     "typescript": "^4.1.2"
   },
-  "devDependencies": {},
   "scripts": {
     "dev": "tsc && echo success build, initializacion electron app && cd dist && electron index.js"
   },
