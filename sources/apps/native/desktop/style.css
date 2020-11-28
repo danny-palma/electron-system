@@ -67,18 +67,33 @@ body {
     cursor: pointer;
 }
 
-.taskbar>.date-box{
+.taskbar>.date-box {
     float: right;
     color: #ffff;
     padding-right: 5px;
 }
 
-#init-menu{
+.taskbar>#system-info {
+    float: right;
+    height: var(--height-taskbar);
+    width: auto;
+    padding-right: 10px;
+}
+
+.taskbar>#system-info>#wifi-info {
+    float: right;
+    height: var(--height-taskbar);
+    width: auto;
+    padding-right: 10px;
+}
+
+#init-menu {
     bottom: var(--height-taskbar);
     left: 0;
     width: 200px;
     height: 300px;
     background-color: var(--taskbar-background-color);
+    color: #ffff;
 }
 
 :root {
