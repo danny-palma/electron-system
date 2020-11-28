@@ -1,0 +1,12 @@
+<div ondrag="moveWindow(this, event)" draggable="true"
+    style="position: absolute; width: {{width}}px; height: {{height}}px;">
+    <div style="background-color: white; height: 20px;">
+        <b style="float: left;">{{appName}}</b>
+        <img src="../windows/sprite-close-window.png" alt="close window" style="height: 100%; float: right; padding: 1px;">
+        <img src="../windows/sprite-maximize-window.png" alt="maximize window" style="height: 100%; float: right; padding: 1px;">
+        <img src="../windows/sprite-minimize-window.png" alt="minimize window" style="height: 100%; float: right; padding: 1px;">
+    </div>
+    <div>
+        {{{body}}}
+    </div>
+</div>
