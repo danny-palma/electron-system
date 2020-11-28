@@ -3,7 +3,7 @@ const path = require('path');
 
 const globalInfoSystemObject = new class globalInfoSystemObject {
     TASKBAR_IS_OPEN = false;
-    ROOT_ROUTE = path.resolve('../sources');
+    ROOT_ROUTE = path.resolve(path.join(__dirname, '../../../'));
     OPEN_WINDOWS = [];
     /**
      * @param {string} propietyName the name of the propiety
