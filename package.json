@@ -1,8 +1,8 @@
 {
-  "name": "electron-hbs-2",
+  "name": "electron-system",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "dependencies": {
     "handlebars": "^4.7.6"
   },
@@ -11,7 +11,10 @@
     "typescript": "^4.1.2"
   },
   "scripts": {
-    "dev": "tsc && echo success build, initializacion electron app && cd dist && electron index.js"
+    "dev": "tsc && echo success compilation, initializacion electron app && cd dist && electron index.js",
+    "build:winx64": "tsc && echo success compilation, building... && electron-packager ./ --platform=win32 --arch=x64 --out=./build --ignore=\"src|.gitignore|README.md|tsconfig.json|build\"",
+    "build:winx32": "tsc && echo success compilation, building... && electron-packager ./ --platform=win32 --arch=ia32 --out=./build --ignore=\"src|.gitignore|README.md|tsconfig.json|build\"",
+    "build:all": "tsc && echo success compilation, building... && electron-packager ./ --platform=all --arch=all --out=./build --ignore=\"src|.gitignore|README.md|tsconfig.json|build\""
   },
   "keywords": [],
   "author": "",
