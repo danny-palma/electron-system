@@ -14,14 +14,20 @@ spected output
 PS C:\dir> npm run dev
 
 > electron-hbs-2@1.0.0 dev C:\dir
-> tsc && echo success build, initializacion electron app && cd dist && electron index.js
+> tsc && echo success compilation, initializacion electron app && cd dist && electron index.js
 
 success build, initializacion electron app
 
 // now a window is open
 ```
 ## how can build the app?
-the app cannot be compiled for the moment
+it's simple, please run
+
+```c
+npm run build:winx64 // or
+npm run build:winx32 //or
+npm run build:all
+```
 
 ## how can i contribute?
 
