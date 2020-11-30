@@ -7,6 +7,8 @@ example:
 |
 | - images
 |       |- icon.png
+| - views
+|       |- index.html
 | - main.js
 ```
 
@@ -49,4 +51,10 @@ module.exports = class app {
         // the code of the app
     }
 }
+/**
+ * IMPORTANT 
+ * if you need to create a window please use the function loadWindow()
+ * the html file doesn't need a full html to be declared
+ * @example loadWindow('/apps/newApp/views/index.html', 200, 300, 'new app');
+ */
 ```
