@@ -55,6 +55,7 @@ module.exports = class app {
  * IMPORTANT 
  * if you need to create a window please use the function loadWindow()
  * the html file doesn't need a full html to be declared
- * @example loadWindow('/apps/newApp/views/index.html', 200, 300, 'new app');
+ * @example loadWindow(htmlPath, width, height, appName)
+ * loadWindow('/apps/newApp/views/index.html', 200, 300, 'new app');
  */
 ```
