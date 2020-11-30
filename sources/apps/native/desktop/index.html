@@ -41,7 +41,8 @@
             <script>
                 let iconWifi = document.getElementById('wifi-info');
                 const alertOnlineStatus = () => {
-                    navigator.onLine ? iconWifi.src = './images/wifi-on.png' : iconWifi.src = './images/wifi-off.png';
+                    navigator.onLine ? iconWifi.src = './images/wifi-on.png' : iconWifi.src =
+                        './images/wifi-off.png';
                 };
                 window.addEventListener('online', alertOnlineStatus);
                 window.addEventListener('offline', alertOnlineStatus);
@@ -50,7 +51,22 @@
         </div>
         <!-- init bar -->
         <div id="init-menu" style="display: none; position: absolute;">
-            hola
+            <div class="option">
+                <input type="checkbox" name="checkbox-full-screen" id="checkbox-full-screen" title="full screen"
+                    onchange="changeFullScreen(this.checked)">
+                <label for="checkbox-full-screen">full screen</label>
+                <script>
+                    if (require('../../../registry/initial-config.json')['full-screen']) {
+                        document.getElementById('checkbox-full-screen').setAttribute('checked', true);
+                    };
+                </script>
+            </div>
+            <div class="option">
+                <a class="shut-down" onclick="shutDown()">apagar</a>
+            </div>
+            <div class="option">
+                <a class="reboot" onclick="reboot()">reiniciar</a>
+            </div>
         </div>
     </footer>
     <!-- native Scripts -->

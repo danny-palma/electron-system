@@ -1,4 +1,5 @@
-import { BrowserWindow, BrowserWindowConstructorOptions, App, app } from 'electron';
+import { BrowserWindow, BrowserWindowConstructorOptions, App, app, ipcMain } from 'electron';
+import saveValue from "./save-value-on-registry";
 
 export default class Main {
     public window: BrowserWindow | undefined;
@@ -14,11 +15,25 @@ export default class Main {
             this.app.on('ready', load)
         };
         this.listeners();
+        this.ipcListeners();
     };
     private listeners() {
         this.app.on('window-all-closed', () => {
             console.log('goodbye :D')
             this.app.quit();
+        });
+    }
+    private ipcListeners() {
+        ipcMain.on('shut-down', () => {
+            this.app.exit();
+        });
+        ipcMain.on('reboot', () => {
+            this.app.relaunch();
+            this.app.quit();
+        });
+        ipcMain.on('change-full-screeen', (ev, ...args) => {
+            this.window?.setFullScreen(args[0]);
+            saveValue('full-screen', args[0])
         });
     }
 };

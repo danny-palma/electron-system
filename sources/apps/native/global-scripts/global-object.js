@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const ipcRenderer = require('electron').ipcRenderer
 
 const globalInfoSystemObject = new class globalInfoSystemObject {
     TASKBAR_IS_OPEN = false;
@@ -17,3 +18,15 @@ const globalInfoSystemObject = new class globalInfoSystemObject {
         this[propietyName] = propiety;
     };
 };
+
+function shutDown() {
+    ipcRenderer.send('shut-down');
+}
+
+function reboot() {
+    ipcRenderer.send('reboot');
+}
+
+function changeFullScreen(type) {
+    ipcRenderer.send('change-full-screeen', type);
+}

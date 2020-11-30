@@ -96,9 +96,38 @@ body {
     color: #ffff;
 }
 
+#init-menu>.option {
+    padding: 10px;
+}
+
+#init-menu>.option>.shut-down {
+    height: 100%;
+    cursor: pointer;
+    width: 100%;
+    background-color: red;
+    color: #ffff;
+    display: block;
+    text-align: center;
+    align-self: center;
+}
+
+#init-menu>.option>.reboot {
+    height: 100%;
+    cursor: pointer;
+    width: 100%;
+    background-color: rgb(50, 20, 200);
+    color: #ffff;
+    display: block;
+    text-align: center;
+    align-self: center;
+}
+
 :root {
     --height-taskbar: 37px;
     --witdth-taskbar: 100%;
     --transition-delay-icons: 400ms;
     --taskbar-background-color: rgba(0, 0, 0, .7);
+    text-rendering: optimizeLegibility;
+    shape-rendering: crispEdges;
+    image-rendering: optimizeQuality;
 }
