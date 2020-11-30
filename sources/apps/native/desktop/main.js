@@ -15,7 +15,22 @@ function hideinitMenu() {
     globalInfoSystemObject.TASKBAR_IS_OPEN = false;
 }
 
-function initFileExplorer() {
-    require('../../FileExplorer/index')
-        .default.main(document.getElementById('desktop-for-windows'));
+function initApp(id) {
+    let intalledApps = require('../../../registry/installed-apps.json').apps;
+    intalledApps.forEach((value) => {
+        if (value.id == id){
+            require(path.join(globalInfoSystemObject.ROOT_ROUTE, value.main_route)).main();
+        };
+    });
 }
+
+(function () {
+    let intalledApps = require('../../../registry/installed-apps.json').apps
+    let initButton = document.getElementById('start-button')
+    intalledApps.forEach((value) => {
+        initButton.insertAdjacentHTML("afterend",`
+        <a class="icon"><img src="${path.join(globalInfoSystemObject.ROOT_ROUTE, value.icon_route)}" alt="${value.name}"
+        onclick="initApp('${value.id}')" title="${value.name}"></a>
+        `)
+    });
+})();

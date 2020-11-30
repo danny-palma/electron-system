@@ -17,13 +17,11 @@
         </div>
     </main>
     <footer class="taskbar">
-        <a class="start-button" onclick="startButton()"><img src="./images/electron-icon.png" alt="electron-icon"></a>
-        <a class="icon"><img src="../../FileExplorer/images/icon-file-explorer.png" alt="electron-icon"
-                onclick="initFileExplorer()"></a>
+        <a class="start-button" onclick="startButton()" id="start-button"><img src="./images/electron-icon.png" alt="electron-icon"></a>
         <!-- date info -->
         <div class="date-box" id="date-box">
             <script>
-                (() => {
+                (function () {
                     let htmlDateBox = document.getElementById('date-box');
                     let date = new Date();
                     htmlDateBox.innerText = `${date.getHours()}:${date.getMinutes()}\n${date.toLocaleDateString()}`;
@@ -75,6 +73,7 @@
     <script src="../global-scripts/load-files-and-routes.js"></script>
     <script src="../global-scripts/load-window.js"></script>
     <script src="../global-scripts/move-window.js"></script>
+    <script src="../global-scripts/save-value-on-registry.js"></script>
     <script src="./main.js"></script>
 </body>
 
