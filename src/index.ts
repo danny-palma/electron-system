@@ -38,4 +38,4 @@ new Main({
         nodeIntegration: true,
         contextIsolation: false
     }
-}, join(__dirname, '/../sources/apps/native/desktop/index.html'));
+}, join(__dirname, '/../sources/system/desktop/index.html'));

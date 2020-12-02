@@ -16,7 +16,7 @@ function hideinitMenu() {
 }
 
 function initApp(id) {
-    let intalledApps = require('../../../registry/installed-apps.json').apps;
+    let intalledApps = require('../../registry/installed-apps.json').apps;
     intalledApps.forEach((value) => {
         if (value.id == id){
             require(path.join(globalInfoSystemObject.ROOT_ROUTE, value.main_route)).main();
@@ -25,7 +25,7 @@ function initApp(id) {
 }
 
 (function () {
-    let intalledApps = require('../../../registry/installed-apps.json').apps
+    let intalledApps = require('../../registry/installed-apps.json').apps
     let initButton = document.getElementById('start-button')
     intalledApps.forEach((value) => {
         initButton.insertAdjacentHTML("afterend",`

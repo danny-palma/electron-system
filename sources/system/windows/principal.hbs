@@ -1,5 +1,6 @@
-<div ondrag="moveWindow(this, event)" draggable="true" onclick="setWindowOnTop(this, event)"
-    style="position: absolute; width: {{width}}px; height: {{height}}px; background-color: white;">
+<div ondrag="moveWindow(this, event)" draggable="true" onclick="// setWindowOnTop(this, event)"
+    style="position: absolute; width: {{width}}px; height: {{height}}px; background-color: white;"
+    id="{{appName}}">
     <div style="background-color: white; height: 20px;">
         {{#if iconPath}}
         <img src="{{iconPath}}" alt="{{appname}}" style="height: 50%; float: left; margin: 5px 2px;">

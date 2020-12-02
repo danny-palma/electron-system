@@ -54,7 +54,7 @@
                     onchange="changeFullScreen(this.checked)">
                 <label for="checkbox-full-screen">full screen</label>
                 <script>
-                    if (require('../../../registry/initial-config.json')['full-screen']) {
+                    if (require('../../registry/initial-config.json')['full-screen']) {
                         document.getElementById('checkbox-full-screen').setAttribute('checked', true);
                     };
                 </script>
