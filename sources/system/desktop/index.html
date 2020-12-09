@@ -37,14 +37,16 @@
         <div id="system-info" style="float: right;">
             <img src="./images/wifi-on.png" alt="wifi on" style="float: right;" id="wifi-info">
             <script>
-                let iconWifi = document.getElementById('wifi-info');
-                const alertOnlineStatus = () => {
-                    navigator.onLine ? iconWifi.src = './images/wifi-on.png' : iconWifi.src =
-                        './images/wifi-off.png';
-                };
-                window.addEventListener('online', alertOnlineStatus);
-                window.addEventListener('offline', alertOnlineStatus);
-                alertOnlineStatus();
+                (function () {
+                    let iconWifi = document.getElementById('wifi-info');
+                    const alertOnlineStatus = () => {
+                        navigator.onLine ? iconWifi.src = './images/wifi-on.png' : iconWifi.src =
+                            './images/wifi-off.png';
+                    };
+                    window.addEventListener('online', alertOnlineStatus);
+                    window.addEventListener('offline', alertOnlineStatus);
+                    alertOnlineStatus();
+                })();
             </script>
         </div>
         <!-- init bar -->
