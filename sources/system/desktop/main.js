@@ -19,7 +19,11 @@ function initApp(id) {
     let intalledApps = require('../../registry/installed-apps.json').apps;
     intalledApps.forEach((value) => {
         if (value.id == id){
-            require(path.join(globalInfoSystemObject.ROOT_ROUTE, value.main_route)).main();
+            try{
+                require(path.join(globalInfoSystemObject.ROOT_ROUTE, value.main_route)).main();
+            }catch(err){
+                alert(`${err}`);
+            };
         };
     });
 }
