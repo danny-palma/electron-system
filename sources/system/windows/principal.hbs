@@ -1,17 +1,18 @@
 <div onclick="// setWindowOnTop(this, event)"
     style="position: absolute; width: {{width}}px; height: {{height}}px; background-color: white;"
     id="{{appName}}-window">
-    <div style="background-color: white; height: 20px; " onmousedown="moveWindow(this, event)">
+    <div style="background-color: rgb(230, 228, 228); height: 20px; border-bottom: 1px solid rgb(168, 168, 168);"
+        onmousedown="moveWindow(this, event)">
         {{#if iconPath}}
         <img src="{{iconPath}}" alt="{{appname}}" style="height: 50%; float: left; margin: 5px 2px;">
         {{/if}}
         <b style="float: left; padding-left: 5px;">{{appName}}</b>
-        <img src="../windows/sprite-close-window.png" alt="close window"
-            style="height: 100%; float: right; padding: 1px;">
-        <img src="../windows/sprite-maximize-window.png" alt="maximize window"
-            style="height: 100%; float: right; padding: 1px;">
-        <img src="../windows/sprite-minimize-window.png" alt="minimize window"
-            style="height: 100%; float: right; padding: 1px;">
+        <img src="../windows/sprite-close-window.png" alt="close window" title="close"
+            style="height: 100%; float: right; padding: 1px 2px; cursor: pointer;">
+        <img src="../windows/sprite-maximize-window.png" alt="maximize window" title="maximize"
+            style="height: 100%; float: right; padding: 1px 2px; cursor: pointer;">
+        <img src="../windows/sprite-minimize-window.png" alt="minimize window" title="minimize"
+            style="height: 100%; float: right; padding: 1px 2px; cursor: pointer;">
     </div>
     <div>
         {{{body}}}
