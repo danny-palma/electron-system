@@ -5,16 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
-    <title>App</title>
+    <title>Electron System</title>
 </head>
 
 <body>
     <main class="desktop" onclick="hideinitMenu()">
         <h5 style="color: white;">electron system alpha</h5>
         <!-- table for write the windows -->
-        <div id="desktop-for-windows">
-
-        </div>
+        <div id="desktop-for-windows"></div>
     </main>
     <footer class="taskbar">
         <a class="start-button" onclick="startButton()" id="start-button"><img src="./images/electron-icon.png"
@@ -23,14 +21,14 @@
         <div class="date-box" id="date-box">
             <script>
                 (function () {
-                    let htmlDateBox = document.getElementById('date-box');
-                    let date = new Date();
-                    htmlDateBox.innerText = `${date.getHours()}:${date.getMinutes()}\n${date.toLocaleDateString()}`;
-                    setInterval(() => {
-                        date = new Date();
+                    const getDate = () => {
+                        let htmlDateBox = document.getElementById('date-box');
+                        let date = new Date();
                         htmlDateBox.innerText =
-                            `${date.getHours()}:${date.getMinutes()}\n${date.toLocaleDateString()}`;
-                    }, 1000);
+                            `${date.getHours()>12?date.getHours()-12:date.getHours()}:${date.getMinutes()} ${date.getHours()>12?'pm':'am'}\n${date.toLocaleDateString()}`;
+                    };
+                    getDate();
+                    setInterval(getDate, 1000);
                 })();
             </script>
         </div>
@@ -77,6 +75,8 @@
     <script src="../global-scripts/load-window.js"></script>
     <script src="../global-scripts/move-window.js"></script>
     <script src="../global-scripts/save-value-on-registry.js"></script>
+    <script src="../global-scripts/set-window-onTop.js"></script>
+    <script src="../global-scripts/window-interactions.js"></script>
     <script src="./main.js"></script>
 </body>
 
