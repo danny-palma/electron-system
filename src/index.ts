@@ -1,10 +1,9 @@
 import { join } from "path";
 import { existsSync, writeFileSync, mkdirSync } from "fs";
 // verification of registry
-if (!existsSync(join(__dirname, '../sources/registry/'))) {
-    mkdirSync(join(__dirname, '../sources/registry/'));
+if (!existsSync(join(__dirname, "../sources/registry"))) {
+    mkdirSync(join(__dirname, "../sources/registry"));
 };
-
 if (!existsSync(join(__dirname, '../sources/registry/initial-config.json'))) {
     writeFileSync(join(__dirname, '../sources/registry/initial-config.json'), JSON.stringify({
         'full-screen': false
