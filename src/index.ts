@@ -24,6 +24,12 @@ if (!existsSync(join(__dirname, '../sources/registry/installed-apps.json'))) {
                 icon_route: '/apps/navegador/images/icon-explorer.png',
                 main_route: '/apps/navegador/main.js',
                 id: '002'
+            },
+            {
+                name: 'App Installer',
+                icon_route: '/apps/app-installer/images/icon.png',
+                main_route: '/apps/app-installer/main.js',
+                id: '003'
             }
         ]
     }));
