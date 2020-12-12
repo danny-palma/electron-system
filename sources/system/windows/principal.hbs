@@ -1,21 +1,32 @@
 <div onmousedown="setWindowOnTop(this, event)"
     style="position: absolute; width: {{width}}px; height: {{height}}px; background-color: white;"
     id="{{appName}}-window">
-    <div style="background-color: rgb(230, 228, 228); height: 20px; border-bottom: 1px solid rgb(168, 168, 168);"
-        onmousedown="moveWindow(this, event)">
-        {{#if iconPath}}
-        <img src="{{iconPath}}" alt="{{appname}}" style="height: 50%; float: left; margin: 5px 2px;">
-        {{/if}}
-        <b style="float: left; padding-left: 5px;">{{appName}}</b>
-        <img src="../windows/sprite-close-window.png" alt="close window" title="close"
-            style="height: 100%; float: right; padding: 1px 2px; cursor: pointer;">
-        <img src="../windows/sprite-maximize-window.png" alt="maximize window" title="maximize"
-            style="height: 100%; float: right; padding: 1px 2px; cursor: pointer;">
-        <img src="../windows/sprite-minimize-window.png" alt="minimize window" title="minimize"
-            style="height: 100%; float: right; padding: 1px 2px; cursor: pointer;"
-            onclick="minimizeWindow(this)">
+    <div style="background-color: rgb(230, 228, 228); height: 20px; border-bottom: 1px solid rgb(168, 168, 168);">
+        <!--icon & title-->
+        <div style="height: 100%; width: 90%; float: left;" onmousedown="moveWindow(this, event)">
+            {{#if iconPath}}
+            <img src="{{iconPath}}" alt="{{appname}}" style="height: 50%; float: left; margin: 5px 2px;">
+            {{/if}}
+            <b style="float: left; padding-left: 5px;">{{appName}}</b>
+        </div>
+        <!-- window interactions -->
+        <div style="height: 100%; float: right;">
+            <a style="height: 100%; float: right; padding: 1px 2px; cursor: pointer;">
+                <img src="../windows/sprite-close-window.png" alt="close window" title="close" draggable="false"
+                    style="height: inherit;">
+            </a>
+            <a style="height: 100%; float: right; padding: 1px 2px; cursor: pointer;">
+                <img src="../windows/sprite-maximize-window.png" alt="maximize window" title="maximize"
+                    draggable="false" style="height: inherit;">
+            </a>
+            <p onclick="minimizeWindow()"
+                style="height: 100%; float: right; padding: 1px 2px; cursor: pointer;">
+                <img src="../windows/sprite-minimize-window.png" alt="minimize window" title="minimize"
+                    draggable="false" style="height: inherit;">
+            </p>
+        </div>
     </div>
-    <div>
+    <div style="overflow: auto; height: 95.9%; width: 100%;">
         {{{body}}}
     </div>
 </div>
