@@ -4,10 +4,9 @@ const ipcRenderer = require('electron').ipcRenderer
 
 const globalInfoSystemObject = new class globalInfoSystemObject {
     TASKBAR_IS_OPEN = false;
-    ROOT_ROUTE = path.resolve(path.join(__dirname, '../../'));
-    set ROOT_ROUTE(){
-        return this.ROOT_ROUTE;
-    }
+    get ROOT_ROUTE() {
+        return path.resolve(path.join(__dirname, '../../'));
+    };
     OPEN_WINDOWS = [];
     /**
      * @param {string} propietyName the name of the propiety
