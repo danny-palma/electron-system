@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const ipcRenderer = require('electron').ipcRenderer
 
-const globalInfoSystemObject = new class globalInfoSystemObject {
+const globalInfoSystemObject = new class SystemInfo {
     TASKBAR_IS_OPEN = false;
     get ROOT_ROUTE() {
         return path.resolve(path.join(__dirname, '../../'));
