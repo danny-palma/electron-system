@@ -11,8 +11,8 @@ module.exports = class fileExplorer {
         };
         loadWindowWithString(
             fileExplorerUpdateFolder(),
-            200,
-            500,
+            720,
+            480,
             'file explorer',
             '/apps/fileExplorer/images/icon-file-explorer.png'
         );
