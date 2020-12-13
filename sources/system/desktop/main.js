@@ -33,8 +33,10 @@ function initApp(id) {
     let initButton = document.getElementById('start-button')
     intalledApps.forEach((value) => {
         initButton.insertAdjacentHTML("afterend",`
-        <a class="icon"><img src="${path.join(globalInfoSystemObject.ROOT_ROUTE, value.icon_route)}" alt="${value.name}"
-        onclick="initApp('${value.id}')" title="${value.name}"></a>
+        <a class="icon" id="icon-app-${value.id}">
+            <img src="${path.join(globalInfoSystemObject.ROOT_ROUTE, value.icon_route)}" alt="${value.name}"
+                onclick="initApp('${value.id}')" title="${value.name}">
+        </a>
         `)
     });
 })();
