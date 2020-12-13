@@ -11,19 +11,18 @@
         </div>
         <!-- window interactions -->
         <div style="height: 100%; float: right;">
-            <a style="height: 100%; float: right; padding: 1px 2px; cursor: pointer;">
+            <a onmouseup="closeWindow(this)" style="height: 100%; float: right; padding: 1px 2px; cursor: pointer;">
                 <img src="../windows/sprite-close-window.png" alt="close window" title="close" draggable="false"
                     style="height: inherit;">
             </a>
-            <a style="height: 100%; float: right; padding: 1px 2px; cursor: pointer;">
+            <a onmouseup="maximizeWindow(this)" style="height: 100%; float: right; padding: 1px 2px; cursor: pointer;">
                 <img src="../windows/sprite-maximize-window.png" alt="maximize window" title="maximize"
                     draggable="false" style="height: inherit;">
             </a>
-            <p onclick="minimizeWindow()"
-                style="height: 100%; float: right; padding: 1px 2px; cursor: pointer;">
+            <a onmouseup="minimizeWindow(this)" style="height: 100%; float: right; padding: 1px 2px; cursor: pointer;">
                 <img src="../windows/sprite-minimize-window.png" alt="minimize window" title="minimize"
                     draggable="false" style="height: inherit;">
-            </p>
+            </a>
         </div>
     </div>
     <div style="overflow: auto; height: 95.9%; width: 100%;">
