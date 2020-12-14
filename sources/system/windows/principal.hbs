@@ -1,5 +1,7 @@
 <div onmousedown="setWindowOnTop(this, event)"
-    style="position: absolute; width: {{width}}px; height: {{height}}px; background-color: white; box-shadow: 0px 0px 10px 0px rgba(0,0,0,.5); border-radius: 0px 0px 3px 3px;"
+    style="position: absolute; width: {{width}}px; 
+    height: {{height}}px; background-color: white; box-shadow: 0px 0px 10px 0px rgba(0,0,0,.5);
+    border-radius: 0px 0px 3px 3px; z-index: 20;"
     id="{{appName}}-window" class="window">
     <div style="background-color: rgb(230, 228, 228); height: 20px; border-bottom: 1px solid rgb(168, 168, 168);">
         <!--icon & title-->
@@ -25,7 +27,7 @@
             </a>
         </div>
     </div>
-    <div style="overflow: auto; height: 95.9%; width: 100%;">
+    <div style="overflow: auto; height: calc(100% - 20px); width: 100%;" class="scroll">
         {{{body}}}
     </div>
 </div>
