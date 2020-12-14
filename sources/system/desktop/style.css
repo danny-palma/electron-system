@@ -33,6 +33,16 @@ body {
     overflow: hidden;
 }
 
+*::-webkit-scrollbar{
+    width: 7px;
+    height: 7px;
+}
+
+*::-webkit-scrollbar-thumb{
+    background: rgb(184, 182, 182);
+    border-radius: 20px;
+}
+
 .desktop {
     height: 100%;
     width: 100%;
@@ -40,6 +50,7 @@ body {
     background-repeat: no-repeat;
     background-clip: content-box;
     background-size: cover;
+    z-index: 0;
 }
 
 .taskbar {
@@ -49,6 +60,7 @@ body {
     bottom: 0;
     background-color: var(--taskbar-background-color);
     z-index: 10000;
+    backdrop-filter: var(--blur-filtering);
 }
 
 .taskbar>.start-button>img {
@@ -110,6 +122,7 @@ body {
     height: 300px;
     background-color: var(--taskbar-background-color);
     color: #ffff;
+    backdrop-filter: var(--blur-filtering);
 }
 
 #init-menu>.option {
@@ -143,6 +156,8 @@ body {
     --witdth-taskbar: 100%;
     --transition-delay-icons: 400ms;
     --taskbar-background-color: rgba(0, 0, 0, .7);
+    --blur-filtering: blur(5px);
+    --fill-window: calc(100% - var(--height-taskbar));
     text-rendering: optimizeLegibility;
     shape-rendering: crispEdges;
     image-rendering: optimizeQuality;
