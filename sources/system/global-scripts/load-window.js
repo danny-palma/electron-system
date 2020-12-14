@@ -19,6 +19,7 @@ function loadWindowWithPath(htmlPath, width, height, appName, iconPath) {
         appName,
         iconPath
     }));
+    return document.getElementById(`${appName}-window`);
 }
 function loadWindowWithString(string, width, height, appName, iconPath) {
     let divDesktop = document.getElementById('desktop-for-windows');
@@ -31,5 +32,5 @@ function loadWindowWithString(string, width, height, appName, iconPath) {
         appName,
         iconPath
     }));
+    return document.getElementById(`${appName}-window`);
 }
-
