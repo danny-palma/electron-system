@@ -48,6 +48,7 @@ body {
     position: absolute;
     bottom: 0;
     background-color: var(--taskbar-background-color);
+    z-index: 10000;
 }
 
 .taskbar>.start-button>img {
