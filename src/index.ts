@@ -46,5 +46,6 @@ new Main({
     webPreferences: {
         nodeIntegration: true,
         contextIsolation: false
-    }
+    },
+    show: false
 }, join(__dirname, '/../sources/system/desktop/index.html'));

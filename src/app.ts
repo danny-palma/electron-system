@@ -8,6 +8,9 @@ export default class Main {
         const load = () => {
             this.window = new BrowserWindow(args);
             this.window.loadURL(urlToLoad);
+            this.window.once("ready-to-show", () => {
+                this.window?.show();
+            })
         };
         if (this.app.isReady()) {
             load()
