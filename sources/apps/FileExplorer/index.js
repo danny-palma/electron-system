@@ -1,7 +1,7 @@
-module.exports = class fileExplorer {
-    static main() {
+ module.exports = class fileExplorer {
+    static main(...args) {
         function fileExplorerUpdateFolder(path = '/') {
-            let folders = [];
+            let folders = [1, 1, 1, 11, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
             fs.readdirSync(`${globalInfoSystemObject.ROOT_ROUTE}${path}`).map((value) => {
                 folders.push(value);
             })
@@ -18,4 +18,13 @@ module.exports = class fileExplorer {
         );
         require('./updateexplorer');
     }
+    static onclose() {
+        console.log("app is closed");
+    }
+    static onminimize() {
+        console.log("app is minimized");
+    }
+    static onmaximized(){
+        console.log("app is maximized");
+    } 
 };
