@@ -55,7 +55,7 @@ function maximizeWindow(that) {
         };
     };
     currentWindow.style.width = '100%';
-    currentWindow.style.height = '100%';
+    currentWindow.style.height = 'var(--fill-window)';
     currentWindow.style.top = '0px';
     currentWindow.style.left = '0px';
     image.src = "../windows/sprite-onwindow-window.png";
