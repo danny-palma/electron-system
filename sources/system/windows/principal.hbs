@@ -2,7 +2,7 @@
     style="position: absolute; width: {{width}}px; 
     height: {{height}}px; background-color: white; box-shadow: 0px 0px 10px 0px rgba(0,0,0,.5);
     border-radius: 0px 0px 3px 3px; z-index: 20;"
-    id="{{appName}}-window" class="window">
+    id="{{id}}-window" class="window">
     <div style="background-color: rgb(230, 228, 228); height: 20px; border-bottom: 1px solid rgb(168, 168, 168);">
         <!--icon & title-->
         <div style="height: 100%; width: 90%; float: left;" onmousedown="moveWindow(this, event)">
@@ -27,7 +27,7 @@
             </a>
         </div>
     </div>
-    <div style="overflow: auto; height: calc(100% - 20px); width: 100%;" class="scroll">
+    <div style="overflow: auto; height: calc(100% - 20px); width: 100%;">
         {{{body}}}
     </div>
 </div>
