@@ -52,7 +52,7 @@
         <div id="init-menu" style="display: none; position: absolute;">
             <div class="option">
                 <input type="checkbox" name="checkbox-full-screen" id="checkbox-full-screen" title="full screen"
-                    onchange="changeFullScreen(this.checked)">
+                    onchange="globalObject.changeFullScreen(this.checked)">
                 <label for="checkbox-full-screen">full screen</label>
                 <script>
                     if (require('../../registry/initial-config.json')['full-screen']) {
@@ -61,21 +61,17 @@
                 </script>
             </div>
             <div class="option">
-                <a class="shut-down" onclick="shutDown()">apagar</a>
+                <a class="shut-down" onclick="globalObject.shutDown()">apagar</a>
             </div>
             <div class="option">
-                <a class="reboot" onclick="reboot()">reiniciar</a>
+                <a class="reboot" onclick="globalObject.reboot()">reiniciar</a>
             </div>
         </div>
     </footer>
     <!-- native Scripts -->
     <!-- global variables -->
     <script src="../global-scripts/global-object.js"></script>
-    <script src="../global-scripts/load-files-and-routes.js"></script>
     <script src="../global-scripts/load-window.js"></script>
-    <script src="../global-scripts/move-window.js"></script>
-    <script src="../global-scripts/save-value-on-registry.js"></script>
-    <script src="../global-scripts/set-window-onTop.js"></script>
     <script src="../global-scripts/window-interactions.js"></script>
     <script src="./main.js"></script>
 </body>
