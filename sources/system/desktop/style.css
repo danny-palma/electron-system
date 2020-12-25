@@ -24,6 +24,7 @@
     padding: 0px;
     margin: 0px;
     user-select: none;
+    transition: 0ms;
 }
 
 html,
@@ -33,12 +34,12 @@ body {
     overflow: hidden;
 }
 
-*::-webkit-scrollbar{
+*::-webkit-scrollbar {
     width: 7px;
     height: 7px;
 }
 
-*::-webkit-scrollbar-thumb{
+*::-webkit-scrollbar-thumb {
     background: rgb(184, 182, 182);
     border-radius: 20px;
 }
@@ -59,7 +60,7 @@ body {
     position: absolute;
     bottom: 0;
     background-color: var(--taskbar-background-color);
-    z-index: 10000;
+    z-index: 100000;
     backdrop-filter: var(--blur-filtering);
 }
 
@@ -161,4 +162,13 @@ body {
     text-rendering: optimizeLegibility;
     shape-rendering: crispEdges;
     image-rendering: optimizeQuality;
+}
+
+@keyframes downToUp {
+    0% {
+        bottom: -100%;
+    }
+    100% {
+        bottom: var(--height-taskbar);
+    }
 }
