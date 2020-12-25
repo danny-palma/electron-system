@@ -5,7 +5,7 @@
     id="{{id}}-window" class="window">
     <div style="background-color: rgb(230, 228, 228); height: 20px; border-bottom: 1px solid rgb(168, 168, 168);">
         <!--icon & title-->
-        <div style="height: 100%; width: 90%; float: left;" onmousedown="moveWindow(this, event)">
+        <div style="height: 100%; width: 90%; float: left;" onmousedown="moveWindow(this, event)" ondblclick="maximizeWindow(this, false)">
             {{#if iconPath}}
             <img src="{{iconPath}}" alt="{{appname}}" style="height: 50%; float: left; margin: 5px 2px;">
             {{/if}}
@@ -21,13 +21,13 @@
                 <img src="../windows/sprite-maximize-window.png" alt="maximize window" title="maximize"
                     draggable="false" style="height: inherit;">
             </a>
-            <a onmouseup="minimizeWindow(this)" style="height: 100%; float: right; padding: 1px 2px; cursor: pointer;">
+            <a onmouseup="minimizeWindow(this, 'icon-app-{{id}}')" style="height: 100%; float: right; padding: 1px 2px; cursor: pointer;">
                 <img src="../windows/sprite-minimize-window.png" alt="minimize window" title="minimize"
                     draggable="false" style="height: inherit;">
             </a>
         </div>
     </div>
-    <div style="overflow: auto; height: calc(100% - 20px); width: 100%;">
-        {{{body}}}
+    <div style="overflow: hidden; height: calc(100% - 20px); width: 100%;">
+        <iframe style="border: 0px;" height="100%" width="100%"></iframe>
     </div>
 </div>

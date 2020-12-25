@@ -36,12 +36,13 @@ function showWindow(args) {
         id: `${globalObject.OPEN_WINDOWS.length + 1}-window`,
     })
     divDesktop.insertAdjacentHTML('afterbegin', hbs.compile(principalWindow)({
-        body: args.body,
         width: args.width || 720,
         height: args.height || 480,
         appName: args.title || 'app',
         iconPath: args.icon,
         id: globalObject.OPEN_WINDOWS.length
     }));
-    return document.getElementById(`${globalObject.OPEN_WINDOWS.length}-window`);
+    let appendWindow = document.getElementById(`${globalObject.OPEN_WINDOWS.length}-window`);
+    appendWindow.lastElementChild.lastElementChild.srcdoc = args.body
+    return appendWindow;
 }
