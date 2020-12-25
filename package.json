@@ -16,7 +16,10 @@
     "build:winx32": "tsc && echo success compilation, building... && electron-packager ./ --platform=win32 --arch=ia32 --out=./build --ignore=\"src|.gitignore|README.md|tsconfig.json|build\"",
     "build:all": "tsc && echo success compilation, building... && electron-packager ./ --platform=all --arch=all --out=./build --ignore=\"src|.gitignore|README.md|tsconfig.json|build\""
   },
-  "keywords": ["electron", "javascript"],
+  "keywords": [
+    "electron",
+    "javascript"
+  ],
   "author": "danny palma, Discord: Danny Palma uwu#0888 (355824156127920148)",
   "license": "MIT"
 }
