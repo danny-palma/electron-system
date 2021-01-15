@@ -47,17 +47,18 @@ const globalObject = new class SystemInfo {
 
     get initApp() {
         return function initApp(id, ...args) {
-            let installedApps = require('../../registry/installed-apps.json').apps;
-            let targetApp = installedApps.find(value => value.id == id);
-            if (!targetApp) throw new Error(`cannot find the app with this id (${id})`);
-            try {
-                require(path.join(globalObject.ROOT_ROUTE, targetApp.main_route)).main(args);
-            } catch (err) {
-                let date = new Date();
-                alert(`ERROR: ${err}\n\nApp: ${targetApp.name}\n\nLOG FILE: /registry/ErrorLog-${date.getTime()}.log`);
-                fs.writeFileSync(`${globalObject.ROOT_ROUTE}/registry/ErrorLog-${date.getTime()}.log`,
-                    `App Error: ${targetApp.name}\nDate: ${date.toTimeString()}\n\nError Details:\n${err}\n\nError Stack:\n${err.stack ? err.stack : null}`)
-            };
+            ipcRenderer.send("init-app");
+            // let installedApps = require('../../registry/installed-apps.json').apps;
+            // let targetApp = installedApps.find(value => value.id == id);
+            // if (!targetApp) throw new Error(`cannot find the app with this id (${id})`);
+            // try {
+            //     require(path.join(globalObject.ROOT_ROUTE, targetApp.main_route)).main(args);
+            // } catch (err) {
+            //     let date = new Date();
+            //     alert(`ERROR: ${err}\n\nApp: ${targetApp.name}\n\nLOG FILE: /registry/ErrorLog-${date.getTime()}.log`);
+            //     fs.writeFileSync(`${globalObject.ROOT_ROUTE}/registry/ErrorLog-${date.getTime()}.log`,
+            //         `App Error: ${targetApp.name}\nDate: ${date.toTimeString()}\n\nError Details:\n${err}\n\nError Stack:\n${err.stack ? err.stack : null}`)
+            // };
         }
     }
 
