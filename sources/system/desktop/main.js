@@ -1,6 +1,14 @@
+import { system } from "../lib/system.js";
+
+const path = require("path");
+
+document.getElementById("start-button").onclick = () => {
+    startButton();
+}
+
 function startButton(params) {
-    let taskbar = document.getElementById('init-menu')
-    if (globalObject.TASKBAR_IS_OPEN) {
+    let taskbar = document.getElementById('start-menu');
+    if (system.TASKBAR_IS_OPEN) {
         taskbar.animate([
             // keyframes
             { bottom: 'var(--height-taskbar)' },
@@ -10,11 +18,11 @@ function startButton(params) {
             duration: 200,
         }).onfinish = () => {
             taskbar.style.display = ('none');
-            globalObject.TASKBAR_IS_OPEN = false;
+            system.TASKBAR_IS_OPEN = false;
         }
     } else {
         taskbar.style.display = ('unset');
-        globalObject.TASKBAR_IS_OPEN = true;
+        system.TASKBAR_IS_OPEN = true;
         taskbar.animate([
             // keyframes
             { bottom: '-350px' },
@@ -27,7 +35,7 @@ function startButton(params) {
 }
 
 function hideinitMenu() {
-    let taskbar = document.getElementById('init-menu');
+    let taskbar = document.getElementById('start-menu');
     taskbar.animate([
         // keyframes
         { bottom: 'var(--height-taskbar)' },
@@ -37,7 +45,7 @@ function hideinitMenu() {
         duration: 200,
     }).onfinish = () => {
         taskbar.style.display = ('none');
-        globalObject.TASKBAR_IS_OPEN = false;
+        system.TASKBAR_IS_OPEN = false;
     }
 }
 
@@ -50,8 +58,8 @@ function hideinitMenu() {
     intalledApps.forEach((value) => {
         initButton.insertAdjacentHTML("afterend", `
         <a class="icon" id="icon-app-${value.id}">
-            <img src="${path.join(globalObject.ROOT_ROUTE, value.icon_route)}" alt="${value.name}"
-                onclick="globalObject.initApp('${value.id}')" title="${value.name}">
+            <img src="${path.join(system.ROOT_ROUTE, value.icon_route)}" alt="${value.name}"|
+                onclick="global.system.initApp('${value.id}')" title="${value.name}">
         </a>
         `)
     });
