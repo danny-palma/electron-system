@@ -12,7 +12,7 @@ example:
 | - main.js
 ```
 
-then you need to modifed the installed apps file
+Then you need to modifed the installed apps file
 
 example:
 ```json
@@ -40,22 +40,15 @@ example:
 }
 ```
 
-then you need exports class with static method main
+Then you need exports class with static method main
 
 example:
 
 ```js
 // file name = main.js
-module.exports = class app {
+export default class app {
     static main(){
         // the code of the app
     }
 }
-/**
- * IMPORTANT 
- * if you need to create a window please use the function loadWindow()
- * the html file doesn't need a full html to be declared
- * @example loadWindow(htmlPath, width, height, appName)
- * loadWindow('/apps/newApp/views/index.html', 200, 300, 'new app');
- */
 ```
