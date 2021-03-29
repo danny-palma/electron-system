@@ -1,12 +1,16 @@
-module.exports = class fileExplorer {
+const fs = require("fs");
+const ejs = require("ejs");
+import { showWindow } from "../../system/lib/window-manager.js";
+
+export default class fileExplorer {
     static get main() {
         return (...args) => {
             function fileExplorerUpdateFolder(path = '/') {
                 let folders = [1, 1, 1, 11, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
-                fs.readdirSync(`${globalObject.ROOT_ROUTE}${path}`).map((value) => {
+                fs.readdirSync(`${global.system.ROOT_ROUTE}${path}`).map((value) => {
                     folders.push(value);
                 })
-                return hbs.compile(fs.readFileSync(`${__dirname}/index.hbs`).toString())({
+                return ejs.compile(fs.readFileSync(`${global.system.ROOT_ROUTE}/apps/FileExplorer/index.ejs`).toString())({
                     folders
                 });
             };
@@ -18,7 +22,6 @@ module.exports = class fileExplorer {
                 title: 'file explorer',
                 icon: '/apps/fileExplorer/images/icon-file-explorer.png'
             });
-            require('./updateexplorer');
         }
     }
     static onclose() {

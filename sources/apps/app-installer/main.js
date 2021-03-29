@@ -1,5 +1,6 @@
-module.exports = class appInstaller {
+export default class appInstaller {
     static main(...args) {
-        alert('app installer is alpha');
+        console.log("app installer main");
+        return 0;
     }
 }
