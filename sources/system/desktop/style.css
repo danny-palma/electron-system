@@ -116,7 +116,7 @@ body {
     padding-right: 10px;
 }
 
-#init-menu {
+#start-menu {
     bottom: var(--height-taskbar);
     left: 0;
     width: 200px;
@@ -126,11 +126,11 @@ body {
     backdrop-filter: var(--blur-filtering);
 }
 
-#init-menu>.option {
+#start-menu>.option {
     padding: 10px;
 }
 
-#init-menu>.option>.shut-down {
+#start-menu>.option>.shut-down {
     height: 100%;
     cursor: pointer;
     width: 100%;
@@ -141,7 +141,7 @@ body {
     align-self: center;
 }
 
-#init-menu>.option>.reboot {
+#start-menu>.option>.reboot {
     height: 100%;
     cursor: pointer;
     width: 100%;
@@ -168,6 +168,7 @@ body {
     0% {
         bottom: -100%;
     }
+
     100% {
         bottom: var(--height-taskbar);
     }
