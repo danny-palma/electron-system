@@ -2,14 +2,14 @@ const fs = require('fs');
 const path = require('path');
 const ipcRenderer = require('electron').ipcRenderer
 
-const globalObject = new class SystemInfo {
+var system = new class SystemInfo {
     TASKBAR_IS_OPEN = false;
     OPEN_WINDOWS = [];
 
     get ROOT_ROUTE() {
         return path.resolve(path.join(__dirname, '../../'));
     };
-    
+
     /**
      * @param {string} propietyName the name of the propiety
      * @param {any} propiety the value on the propiety
@@ -46,19 +46,20 @@ const globalObject = new class SystemInfo {
     }
 
     get initApp() {
-        return function initApp(id, ...args) {
-            ipcRenderer.send("init-app");
-            // let installedApps = require('../../registry/installed-apps.json').apps;
-            // let targetApp = installedApps.find(value => value.id == id);
-            // if (!targetApp) throw new Error(`cannot find the app with this id (${id})`);
-            // try {
-            //     require(path.join(globalObject.ROOT_ROUTE, targetApp.main_route)).main(args);
-            // } catch (err) {
-            //     let date = new Date();
-            //     alert(`ERROR: ${err}\n\nApp: ${targetApp.name}\n\nLOG FILE: /registry/ErrorLog-${date.getTime()}.log`);
-            //     fs.writeFileSync(`${globalObject.ROOT_ROUTE}/registry/ErrorLog-${date.getTime()}.log`,
-            //         `App Error: ${targetApp.name}\nDate: ${date.toTimeString()}\n\nError Details:\n${err}\n\nError Stack:\n${err.stack ? err.stack : null}`)
-            // };
+        return async function initApp(id, ...args) {
+            let installedApps = require('../../registry/installed-apps.json').apps;
+            let targetApp = installedApps.find(value => value.id == id);
+            if (!targetApp) throw new Error(`cannot find the app with this id (${id})`);
+            try {
+                var app = await import(path.join(system.ROOT_ROUTE, targetApp.main_route));
+                console.log(app)
+                app.default.main();
+            } catch (err) {
+                let date = new Date();
+                alert(`ERROR: ${err}\n\nApp: ${targetApp.name}\n\nLOG FILE: /registry/ErrorLog-${date.getTime()}.log`);
+                fs.writeFileSync(`${global.system.ROOT_ROUTE}/registry/ErrorLog-${date.getTime()}.log`,
+                    `App Error: ${targetApp.name}\nDate: ${date.toTimeString()}\n\nError Details:\n${err}\n\nError Stack:\n${err.stack ? err.stack : null}`)
+            };
         }
     }
 
@@ -83,5 +84,11 @@ const globalObject = new class SystemInfo {
             };
         };
     }
+}();
 
-};
+Object.seal(system);
+
+global.system = system;
+
+export { system };
+export default system;

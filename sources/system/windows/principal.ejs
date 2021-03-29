@@ -1,15 +1,14 @@
-<div onmousedown="setWindowOnTop(this, event)"
-    style="position: absolute; width: {{width}}px; 
-    height: {{height}}px; background-color: white; box-shadow: 0px 0px 10px 0px rgba(0,0,0,.5);
-    border-radius: 0px 0px 3px 3px; z-index: 20;"
-    id="{{id}}-window" class="window">
+<div onmousedown="setWindowOnTop(this, event)" style="position: absolute; background-color: white;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,.5); border-radius: 0px 0px 3px 3px; z-index: 20;" id="frame-<%- locals.id %>"
+    class="window" height="<%- locals.height %>" width="<%- locals.width %>">
     <div style="background-color: rgb(230, 228, 228); height: 20px; border-bottom: 1px solid rgb(168, 168, 168);">
         <!--icon & title-->
-        <div style="height: 100%; width: 90%; float: left;" onmousedown="moveWindow(this, event)" ondblclick="maximizeWindow(this, false)">
-            {{#if iconPath}}
-            <img src="{{iconPath}}" alt="{{appname}}" style="height: 50%; float: left; margin: 5px 2px;">
-            {{/if}}
-            <b style="float: left; padding-left: 5px;">{{appName}}</b>
+        <div style="height: 100%; width: 90%; float: left;" onmousedown="moveWindow(this, event)"
+            ondblclick="maximizeWindow(this, false)">
+            <% if (locals.iconPath) { %>
+            <img src="<%-locals.iconPath%>" alt="<%- locals.appname %>" style="height: 50%; float: left; margin: 5px 2px;">
+            <% } %>
+            <b style="float: left; padding-left: 5px;"><%-locals.appName%></b>
         </div>
         <!-- window interactions -->
         <div style="height: 100%; float: right;">
@@ -21,13 +20,14 @@
                 <img src="../windows/sprite-maximize-window.png" alt="maximize window" title="maximize"
                     draggable="false" style="height: inherit;">
             </a>
-            <a onmouseup="minimizeWindow(this, 'icon-app-{{id}}')" style="height: 100%; float: right; padding: 1px 2px; cursor: pointer;">
+            <a onmouseup="minimizeWindow(this, 'icon-app-<%-locals.id%>')"
+                style="height: 100%; float: right; padding: 1px 2px; cursor: pointer;">
                 <img src="../windows/sprite-minimize-window.png" alt="minimize window" title="minimize"
                     draggable="false" style="height: inherit;">
             </a>
         </div>
     </div>
     <div style="overflow: hidden; height: calc(100% - 20px); width: 100%;">
-        <iframe style="border: 0px;" height="100%" width="100%"></iframe>
+        <iframe style="border: 0px;" height="100%" width="100%" srcdoc="<%-locals.body.replace(/"/g, "'") %>"></iframe>
     </div>
 </div>
